@@ -13188,3 +13188,34 @@ img {
 }
 
 body { overflow-x: hidden; overflow-y: auto; }
+
+/* Mobile menu button visibility fix */
+#menu-btn{
+  display: inline-block !important;
+  width: 42px;
+  height: 42px;
+  position: relative;
+  z-index: 10005 !important;
+  cursor: pointer;
+}
+/* Draw hamburger lines */
+#menu-btn:before,
+#menu-btn:after{
+  content:"";
+  position:absolute;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: rgba(255,255,255,.95);
+  border-radius: 2px;
+}
+
+#menu-btn:before{ top: 14px; box-shadow: 0 7px 0 rgba(255,255,255,.95); }
+#menu-btn:after{ top: 28px; }
+.menu_side_area{
+  position: relative;
+  z-index: 10005 !important;
+}
+header.transparent{
+  z-index: 10000 !important;
+}
