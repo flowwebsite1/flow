@@ -191,7 +191,7 @@ Riyadh, Saudi Arabia
     grid.innerHTML = posts.map(p => {
       // title في WP.com غالبًا كده: p.title.rendered
       const title = stripTags(p?.title?.rendered || p?.title || "");
-      const link  = p?.link || p?.URL || "#";
+      const link = p?.id ? `news-single.html?id=${encodeURIComponent(p.id)}` : (p?.link || p?.URL || "#");
 
       // صورة الخبر (أفضل مصدر في WP.com)
       const img =
@@ -207,8 +207,8 @@ Riyadh, Saudi Arabia
       // نفس كارت التصميم اللي عندك في news.html
       return `
   <div class="col-lg-4">
-    <a href="${link}" target="_blank" rel="noopener"
-       class="news-card d-block hover relative rounded-20 overflow-hidden text-light">
+  <a href="${link}"
+   class="news-card d-block hover relative rounded-20 overflow-hidden text-light">
             <div class="abs z-2 bg-color rounded-2 text-white p-3 pb-2 m-4 text-center fw-600">
               <h4 class="fs-36 mb-0 lh-1">${day}</h4>
               <span>${mon}</span>
@@ -246,6 +246,7 @@ Riyadh, Saudi Arabia
 
 
 </html>
+
 
 
 
