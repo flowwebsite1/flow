@@ -16,6 +16,20 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" >
     <!-- color scheme -->
     <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" >
+<style>
+  html, body{
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+  /* لو عندك wrapper/content بيقفل الطول */
+  #wrapper, #content{
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+</style>
 
 </head>
 
@@ -264,9 +278,14 @@ Riyadh, Saudi Arabia
     if (!res.ok) throw new Error("Post fetch failed");
     const p = await res.json();
 
-    // Title
-    const rawTitle = (p?.title?.rendered || p?.title || "").trim();
-    titleEl.textContent = rawTitle.replace(/<[^>]*>/g, "");
+   const cleanText = (html) => {
+  const d = document.createElement("div");
+  d.innerHTML = html || "";
+  return (d.textContent || "").replace(/\u00A0/g, " ").trim();
+};
+
+titleEl.textContent = cleanText(p?.title?.rendered || p?.title || "");
+
 
     // Date
     const d = new Date((p?.date || "").replace(" ", "T"));
@@ -293,6 +312,11 @@ Riyadh, Saudi Arabia
 <script src="js/designesia.js"></script>
 <script src="js/countdown-custom.js"></script>
 <script src="js/custom-marquee.js"></script>
+<script>
+  document.documentElement.style.overflowY = "auto";
+  document.body.style.overflowY = "auto";
+  document.body.style.height = "auto";
+</script>
 
 </body>
 
