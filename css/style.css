@@ -13151,3 +13151,38 @@ img {
   .news-page-head{ padding-top: 90px; }
   #newsGrid .news-card img{ height: 220px; }
 }
+.news-single-wrap{
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.news-back{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  color: #fff;
+  text-decoration: none;
+}
+.news-back:hover{
+  background: rgba(var(--primary-color-rgb), .18);
+}
+
+.news-content img,
+.news-content video,
+.news-content iframe{
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.news-content a{
+  color: #7fd6ff;
+  text-decoration: underline;
+}
+
+.news-content p{
+  line-height: 1.85;
+  opacity: .95;
+}
