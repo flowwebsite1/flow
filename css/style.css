@@ -13116,3 +13116,38 @@ img {
     width: auto;
   }
 }
+
+/* NEWS title + full-width line */
+.news-page-head{
+  padding-top: 120px; /* لو عايزه أقرب/أبعد غيّر الرقم */
+  padding-bottom: 14px;
+}
+.news-page-title{
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.news-page-divider{
+  height: 1px;
+  width: 100vw;                       /* بعرض الصفحة */
+  margin-left: calc(50% - 50vw);      /* يخليها Full width حتى داخل container */
+  background: rgba(255,255,255,.14);
+}
+
+/* Force same image size for all cards */
+#newsGrid .news-card{
+  height: 100%;
+}
+#newsGrid .news-card img{
+  width: 100%;
+  height: 320px;          /* ثبّت الارتفاع */
+  object-fit: cover;      /* crop محترم */
+  object-position: center;
+  display: block;
+}
+
+@media (max-width: 991px){
+  .news-page-head{ padding-top: 90px; }
+  #newsGrid .news-card img{ height: 220px; }
+}
