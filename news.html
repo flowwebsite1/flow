@@ -151,10 +151,94 @@ Riyadh, Saudi Arabia
     <script src="js/designesia.js"></script>
     <script src="js/countdown-custom.js"></script>
     <script src="js/custom-marquee.js"></script>
+<script>
+(async function () {
+  const SITE = "flowmednews.wordpress.com";
+  const API = `https://public-api.wordpress.com/wp/v2/sites/${SITE}/posts?number=12`;
+
+  const grid = document.getElementById("newsGrid");
+  if (!grid) return;
+
+  const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  const stripTags = (html) => {
+    const d = document.createElement("div");
+    d.innerHTML = html || "";
+    return (d.textContent || d.innerText || "").trim();
+  };
+
+  const normalizePosts = (data) => {
+    // بعض الردود بترجع Array، وبعضها Object — نخليها ثابتة
+    if (Array.isArray(data)) return data;
+    if (data && Array.isArray(data.posts)) return data.posts;
+    if (data && data.id) return [data];
+    return [];
+  };
+
+  try {
+    const res = await fetch(API + "&v=" + Date.now(), { cache: "no-store" });
+    if (!res.ok) throw new Error("API failed");
+    const data = await res.json();
+    const posts = normalizePosts(data);
+
+    grid.innerHTML = posts.map(p => {
+      // title في WP.com غالبًا كده: p.title.rendered
+      const title = stripTags(p?.title?.rendered || p?.title || "");
+      const link  = p?.link || p?.URL || "#";
+
+      // صورة الخبر (أفضل مصدر في WP.com)
+      const img =
+        p?.jetpack_featured_media_url ||
+        p?.featured_image ||
+        (p?._embedded?.["wp:featuredmedia"]?.[0]?.source_url) ||
+        "images/news/s1.webp"; // fallback مؤقت
+
+      const d = new Date((p?.date || "").replace(" ", "T"));
+      const day = String(d.getDate() || 1).padStart(2, "0");
+      const mon = MONTHS[d.getMonth() || 0];
+
+      // نفس كارت التصميم اللي عندك في news.html
+      return `
+        <div class="col-lg-4">
+          <a href="${link}" target="_blank" rel="noopener"
+             class="d-block hover relative rounded-20 overflow-hidden text-light">
+            <div class="abs z-2 bg-color rounded-2 text-white p-3 pb-2 m-4 text-center fw-600">
+              <h4 class="fs-36 mb-0 lh-1">${day}</h4>
+              <span>${mon}</span>
+            </div>
+
+            <img src="${img}" class="w-100 hover-scale-1-1" alt="${title}">
+
+            <div class="absolute start-0 bottom-0 p-4 z-2">
+              <h4>${title}</h4>
+            </div>
+
+            <div class="gradient-edge-bottom h-70"></div>
+          </a>
+        </div>
+      `;
+    }).join("");
+
+    // لو WOW مستخدم عندك ومحتاج يعيد تفعيل الأنيميشن للعناصر الجديدة
+    if (window.WOW) { try { new WOW().init(); } catch(e) {} }
+
+  } catch (err) {
+    console.error(err);
+    grid.innerHTML = `
+      <div class="col-12">
+        <div class="p-4 bg-blur rounded-1 text-light">
+          Unable to load news right now.
+        </div>
+      </div>
+    `;
+  }
+})();
+</script>
 
 </body>
 
 
 </html>
+
 
 
