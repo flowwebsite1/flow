@@ -13219,3 +13219,33 @@ body { overflow-x: hidden; overflow-y: auto; }
 header.transparent{
   z-index: 10000 !important;
 }
+
+/* Navbar underline hover effect */
+#mainmenu > li > a.menu-item{
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;      /* مساحة للّين تحت النص */
+}
+
+/* الخط */
+#mainmenu > li > a.menu-item::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  height: 2px;
+  width: 0%;
+  background: rgba(var(--primary-color-rgb), 1);
+  transition: width .22s ease;
+  border-radius: 2px;
+}
+
+/* Hover */
+#mainmenu > li:hover > a.menu-item::after{
+  width: 100%;
+}
+
+/* Active (لو عندك class="active" على نفس الـ a) */
+#mainmenu > li > a.menu-item.active::after{
+  width: 100%;
+}
