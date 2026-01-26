@@ -13249,3 +13249,7 @@ header.transparent{
 #mainmenu > li > a.menu-item.active::after{
   width: 100%;
 }
+#mainmenu > li.active > a.menu-item::after{
+  width: 100%;
+}
+
