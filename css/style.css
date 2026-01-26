@@ -13310,6 +13310,46 @@ header #mainmenu > li.active > a.menu-item{
 #mainmenu > li > a.menu-item.active > span{
   width: 100%;
 }
+/* Remove theme default underline/border for active menu item */
+#mainmenu > li > a.menu-item.active,
+#mainmenu > li.active > a.menu-item{
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+/* لو الثيم عامل underline بـ pseudo element */
+#mainmenu > li > a.menu-item.active::before,
+#mainmenu > li > a.menu-item.active::after,
+#mainmenu > li.active > a.menu-item::before,
+#mainmenu > li.active > a.menu-item::after{
+  content: none !important;
+  display: none !important;
+}
+/* Submenu arrow for items with submenu */
+#mainmenu > li.has-sub > a.menu-item{
+  padding-right: 22px; /* مساحة للسهم */
+}
+
+#mainmenu > li.has-sub > a.menu-item::after{
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid rgba(255,255,255,.85);
+  border-bottom: 2px solid rgba(255,255,255,.85);
+  transform: translateY(-55%) rotate(45deg); /* سهم لتحت */
+  transition: transform .2s ease, opacity .2s ease;
+  opacity: .9;
+}
+
+/* Rotate arrow when submenu is open (hover) */
+#mainmenu > li.has-sub:hover > a.menu-item::after{
+  transform: translateY(-45%) rotate(-135deg); /* سهم لفوق */
+}
+
 
 
 
