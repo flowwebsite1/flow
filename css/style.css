@@ -13277,5 +13277,39 @@ header #mainmenu > li > a.menu-item.active,
 header #mainmenu > li.active > a.menu-item{
   background-size: 100% 2px !important;
 }
+/* ===== MENU underline (linear gradient) ===== */
+#mainmenu > li > a.menu-item{
+  position: relative;
+}
+
+/* الخط نفسه (span الفاضي) */
+#mainmenu > li > a.menu-item > span{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;                 /* لو عايزه أقرب/أبعد غيّر الرقم */
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--primary-color-rgb), 1),
+    rgba(var(--secondary-color-rgb), 1)
+  );
+  border-radius: 2px;
+  transition: width .25s ease;
+  pointer-events: none;
+}
+
+/* Hover */
+#mainmenu > li:hover > a.menu-item > span{
+  width: 100%;
+}
+
+/* Active (لو active على a أو li) */
+#mainmenu > li.active > a.menu-item > span,
+#mainmenu > li > a.menu-item.active > span{
+  width: 100%;
+}
+
 
 
