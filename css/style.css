@@ -13349,6 +13349,56 @@ header #mainmenu > li.active > a.menu-item{
 #mainmenu > li.has-sub:hover > a.menu-item::after{
   transform: translateY(-45%) rotate(-135deg); /* سهم لفوق */
 }
+/* ===== Force mobile menu icon visible ===== */
+@media (max-width: 991px){
+
+  /* اتأكد إن مكان الزرار ظاهر */
+  .menu_side_area{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 9999 !important;
+  }
+
+  /* الزرار نفسه */
+  #menu-btn{
+    display: inline-block !important;
+    width: 42px !important;
+    height: 42px !important;
+    position: relative !important;
+    cursor: pointer !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* رسم 3 خطوط (Hamburger) */
+  #menu-btn:before,
+  #menu-btn:after{
+    content: "" !important;
+    position: absolute !important;
+    left: 9px !important;
+    right: 9px !important;
+    height: 2px !important;
+    background: #ffffff !important;
+    border-radius: 2px !important;
+  }
+  #menu-btn:before{ top: 14px !important; }
+  #menu-btn:after{ top: 26px !important; }
+
+  /* الخط الأوسط */
+  #menu-btn span{
+    position: absolute !important;
+    left: 9px !important;
+    right: 9px !important;
+    top: 20px !important;
+    height: 2px !important;
+    background: #ffffff !important;
+    border-radius: 2px !important;
+    content: "" !important;
+    display: block !important;
+  }
+}
+
 
 
 
