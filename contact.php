@@ -1,6 +1,6 @@
 <?php
 $subject = 'New Contact Message'; // Subject of your email
-$to = 'contact@designesia.com';  //Recipient's E-mail
+$to = 'contact@flowmedical.com';  //Recipient's E-mail
 
 $emailTo = $_POST['email'];
 $name = $_POST['name'];
@@ -30,4 +30,5 @@ else
 	// Transfer the value 'failed' to ajax function for showing error message.
 	echo 'failed';
 }
+
 ?>
