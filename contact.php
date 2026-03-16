@@ -1,6 +1,6 @@
 <?php
 $subject = 'New Contact Message'; // Subject of your email
-$to = 'contact@flowmedical.com';  //Recipient's E-mail
+$to = 'sales@flowmedical.com';  //Recipient's E-mail
 
 $emailTo = $_POST['email'];
 $name = $_POST['name'];
