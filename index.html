@@ -15,10 +15,103 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- CSS -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/vendors.css">
-<link rel="stylesheet" href="css/swiper.css">
-<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/vendors.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- 🎬 VISUAL PATCH ONLY -->
+    <style>
+
+    body{overflow-x:hidden;}
+
+    #section-hero::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        background:radial-gradient(circle at center,rgba(0,0,0,.2),rgba(0,0,0,.85));
+        z-index:1;
+    }
+
+    .hero-title{
+        text-shadow:0 10px 50px rgba(0,0,0,.7);
+    }
+
+    .bg-blur{
+        backdrop-filter:blur(20px);
+        background:rgba(255,255,255,.05);
+        border:1px solid rgba(255,255,255,.1);
+    }
+
+    .stat-pill{
+        text-align:center;
+        transition:.3s;
+    }
+
+    .stat-pill:hover{
+        transform:translateY(-6px);
+    }
+
+    /* TEAM FIX */
+    #section-speakers .team-row-nowrap{
+        display:flex !important;
+        flex-wrap:wrap !important;
+        justify-content:center !important;
+        gap:25px;
+    }
+
+    #section-speakers .team-row-nowrap > div{
+        flex:0 0 30% !important;
+        max-width:30% !important;
+    }
+
+    @media(max-width:992px){
+        #section-speakers .team-row-nowrap > div{
+            flex:0 0 45% !important;
+            max-width:45% !important;
+        }
+    }
+
+    @media(max-width:576px){
+        #section-speakers .team-row-nowrap > div{
+            flex:0 0 100% !important;
+            max-width:100% !important;
+        }
+    }
+
+    /* MARQUEE FIX */
+    .de-marquee-list-1,
+    .de-marquee-list-2{
+        display:flex !important;
+        white-space:nowrap !important;
+        overflow:hidden !important;
+    }
+
+    .de-marquee-list-1{
+        animation:leftMove 25s linear infinite;
+    }
+
+    .de-marquee-list-2{
+        animation:rightMove 25s linear infinite;
+    }
+
+    @keyframes leftMove{
+        0%{transform:translateX(0)}
+        100%{transform:translateX(-50%)}
+    }
+
+    @keyframes rightMove{
+        0%{transform:translateX(-50%)}
+        100%{transform:translateX(0)}
+    }
+
+    @media(max-width:768px){
+        .hero-title{
+            font-size:10vw !important;
+        }
+    }
+
+    </style>
 
 </head>
 
@@ -767,7 +860,7 @@ window.addEventListener('load', function () {
   const loader = document.getElementById('de-loader');
   if (!loader) return;
   loader.classList.add('loaded');
-  setTimeout(() => { loader.style.display = 'none'; }, 650);
+  setTimeout(() => { loader.style.display = 'none'; }, 450);
 });
 </script>
 
