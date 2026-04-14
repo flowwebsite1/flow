@@ -1,252 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Solutions | FLOW Medical Solutions</title>
-    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
-    <meta content="AIvent" name="description" >
-    <meta content="" name="keywords" >
-    <meta content="" name="author" >
-    <!-- CSS Files
-    ================================================== -->
-<!-- color scheme -->
-<style id="bootstrap-inline">
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/vendors.css">
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solutions | FLOW Medical Solutions</title>
 
+<link rel="icon" href="images/icon.webp">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    margin:0;
+    font-family: 'Montserrat', sans-serif;
+    background:#0b1437;
+    color:#fff;
+}
+
+/* NAVBAR */
+header {
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:999;
+    background:linear-gradient(to right,#1d75bc,#3cb4e5);
+}
+
+.nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+}
+
+.logo img {
+    height:40px;
+}
+
+.menu {
+    display:flex;
+    gap:30px;
+}
+
+.menu a {
+    color:#fff;
+    text-decoration:none;
+    font-weight:500;
+    position:relative;
+}
+
+.menu a::after {
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0%;
+    height:2px;
+    background:#00c6ff;
+    transition:.3s;
+}
+
+.menu a:hover::after,
+.menu a.active::after {
+    width:100%;
+}
+
+/* HERO */
+.hero {
+    height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:linear-gradient(to bottom,#0b1437,#000);
+    padding-top:80px;
+}
+
+.hero h1 {
+    font-size:60px;
+    margin:0;
+}
+
+.hero h2 {
+    font-size:40px;
+    color:#3cb4e5;
+}
+
+.btn {
+    display:inline-block;
+    margin:10px;
+    padding:12px 25px;
+    border-radius:6px;
+    text-decoration:none;
+    color:#fff;
+    border:1px solid #3cb4e5;
+    transition:.3s;
+}
+
+.btn:hover {
+    background:#3cb4e5;
+}
+
+/* SECTION */
+.section {
+    padding:80px 40px;
+    text-align:center;
+}
+
+.section h2 {
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.section p {
+    color:#aaa;
+}
+
+/* GRID */
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+/* CARD */
+.card {
+    background:#121c4d;
+    padding:30px;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.card:hover {
+    transform:translateY(-8px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card h4 {
+    margin:15px 0;
+}
+
+.card p {
+    color:#bbb;
+}
+
+/* FOOTER */
+footer {
+    background:#050b25;
+    padding:40px;
+    text-align:center;
+}
+
+</style>
 </head>
 
-<body class="dark-scheme">
-    <div id="wrapper">
+<body>
 
-        <div class="float-text show-on-scroll">
-            <span><a href="#">Scroll to top</a></span>
-        </div>
-        <div class="scrollbar-v show-on-scroll"></div>
-
-        <!-- page preloader begin -->
-        <div id="de-loader"></div>
-        <!-- page preloader close -->
-
-      <header class="transparent">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="de-flex">
-
-          <div class="de-flex-col">
-            <!-- logo begin -->
-            <div id="logo">
-              <a href="index.html">
-                <img class="logo-main" src="images/logo.webp" alt="">
-                <img class="logo-scroll" src="images/logo.webp" alt="">
-                <img class="logo-mobile" src="images/logo.webp" alt="">
-              </a>
-            </div>
-            <!-- logo close -->
-          </div>
-
-          <!-- MENU -->
-          <div class="de-flex-col header-col-mid">
-            <ul id="mainmenu">
-              <li><a class="menu-item active" href="index.html">Home</a></li>
-              <li><a class="menu-item" href="index.html#section-about">About</a></li>
-
-              <li>
-                <a class="menu-item" href="projects.html">Projects</a>
-                          <ul>
-                  <li><a   href="projects.html">All Projects</a></li>
-                    <li><a href="project-01.html">HMG North Riyadh</a></li>
-                    <li><a href="project-02.html">Security Forces Hospital</a></li>
-                    <li><a href="project-03.html">Al-Salam Hospital</a></li>
-                    <li><a href="project-04.html">HMG Al-Kharj</a></li>
-                </ul>
-              </li>
-
-              <li><a class="menu-item" href="solutions.html">Solutions</a></li>
-              <li><a class="menu-item" href="news.html">News</a></li>
-              <li><a class="menu-item" href="career.html">Career</a></li>
-              <li><a class="menu-item" href="contact.html">Contact Us</a></li>
-            </ul>
-          </div>
-
-          <div class="de-flex-col">
-            <a class="btn-main fx-slide w-100" href="contact.html"><span>Contact</span></a>
-
-            <div class="menu_side_area">
-              <span id="menu-btn"></span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-
-        <section id="section-hero" class="section-dark no-top no-bottom text-light jarallax relative mh-800" data-video-src="mp4:video/videosolutions.mp4">
-            <div class="gradient-edge-top op-6 h-50 color"></div>
-            <div class="gradient-edge-bottom"></div>
-            <div class="sw-overlay op-8"></div>
-
-            <div class="abs abs-centered z-2 w-80">
-                <div class="container wow scaleIn" data-wow-duration="3s">
-                    <div class="row">
-                        <div class="col-lg-12 text-center">
-                            <div class="subtitle">FLOW Medical Solutions</div>
-                            <h1 class="hero-title fs-120 fs-sm-12vw mb-4 lh-1">Solutions</h1>
-                            <h2 class="hero-title fs-120 fs-sm-12vw mb-4">End-to-End</h2>
-
-                            <div class="spacer-single"></div>
-
-                            <a class="btn-main mx-2 fx-slide" href="contact.html"><span>Contact Us</span></a>
-                            <a class="btn-main btn-line mx-2 fx-slide" href="projects.html"><span>Projects</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="section-solutions" class="bg-dark section-dark text-light">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-lg-8">
-                        <div class="subtitle wow fadeInUp" data-wow-delay=".2s">What we deliver</div>
-                        <h2 class="wow fadeInUp" data-wow-delay=".4s">Our Solutions</h2>
-                        <p class="lead wow fadeInUp" data-wow-delay=".6s">
-                           </p>
-                    </div>
-                </div>
-
-                <div class="spacer-single"></div>
-
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="bg-dark-2 p-40 rounded-1 h-100 wow fadeInUp">
-                            <i class="fa-solid fa-diagram-project id-color fs-36 mb-3"></i>
-                            <h4>FLOW ENTERPRISE SOLUTIONS</h4>
-                            <p class="mb-0">Turnkey project delivery from concept to commissioning</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="bg-dark-2 p-40 rounded-1 h-100 wow fadeInUp" data-wow-delay=".05s">
-                            <i class="fa-solid fa-hospital id-color fs-36 mb-3"></i>
-                            <h4>FLOW CARELINES</h4>
-                            <p class="mb-0">Specialized clinical department solutions (OR, Imaging,Cardiology, NICU, etc.)</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="bg-dark-2 p-40 rounded-1 h-100 wow fadeInUp" data-wow-delay=".1s">
-                            <i class="fa-solid fa-shield-halved id-color fs-36 mb-3"></i>
-                            <h4>FLOW SERVICE+</h4>
-                            <p class="mb-0">Comprehensive asset lifecycle management and technical support</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="bg-dark-2 p-40 rounded-1 h-100 wow fadeInUp" data-wow-delay=".15s">
-                            <i class="fa-solid fa-cubes id-color fs-36 mb-3"></i>
-                            <h4>FLOW DIGITAL SOLUTIONS</h4>
-                            <p class="mb-0">Advanced platforms like ATOMS CMMS & FlowMedMart</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="bg-dark-2 p-40 rounded-1 h-100 wow fadeInUp">
-                            <i class="fa-solid fa-laptop-medical id-color fs-36 mb-3"></i>
-                            <h4>FLOW PERFORMANCE EXCELLENCE</h4>
-                            <p class="mb-0">Advisory and workflow optimization for hospital efficiency</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="bg-dark-2 p-40 rounded-1 h-100 wow fadeInUp" data-wow-delay=".05s">
-                            <i class="fa-solid fa-gear id-color fs-36 mb-3"></i>
-                            <h4>MANAGED EQUIPMENT SERVICES (MES)</h4>
-                            <p class="mb-0">Innovative financial and operational models for long-term equipment management</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="bg-dark-2 p-40 rounded-1 h-100 wow fadeInUp" data-wow-delay=".1s">
-                            <i class="fa-solid fa-chart-line id-color fs-36 mb-3"></i>
-                            <h4>ASSESSMENT & PLANNING</h4>
-                            <p class="mb-0">description for Solution </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="bg-dark-2 p-40 rounded-1 h-100 wow fadeInUp" data-wow-delay=".15s">
-                            <i class="fa-solid fa-graduation-cap id-color fs-36 mb-3"></i>
-                            <h4>CONSTRUCTION</h4>
-                            <p class="mb-0"> description for Solution</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </div>
- <!-- footer begin -->
-    <footer class="text-light section-dark">
-        <div class="container">
-            <div class="row g-4 align-items-center">
-                <div class="col-md-12">
-                    <div class="d-lg-flex align-items-center justify-content-between text-center">
-                        <div>
-                            <h3 class="fs-20">Address</h3> 
-                            <h3 class="fs-20 with-ico">
-  <i class="fa-solid fa-globe"></i>
-Riyadh, Saudi Arabia
-</h3>
-
-                            </div>
-                        <div>
-                            <img src="images/logo.webp" class="w-150px" alt=""><br>
-<div class="social-icons mb-sm-30 mt-4">
-  <a href="https://www.linkedin.com/company/flowmedical/" target="_blank" rel="noopener">
-    <i class="fa-brands fa-linkedin-in"></i>
-  </a>
-  <a href="https://www.youtube.com/@flowmedicalsolutions1112" target="_blank" rel="noopener">
-    <i class="fa-brands fa-youtube"></i>
-  </a>
-  
-  <a href="https://x.com/Flow_Medical_" target="_blank" rel="noopener">
-    <i class="fa-brands fa-x-twitter"></i>
-  </a>
+<!-- NAVBAR -->
+<header>
+<div class="nav">
+<div class="logo">
+<img src="images/logo.webp">
 </div>
 
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="index.html#section-about">About</a>
+<a href="projects.html">Projects</a>
+<a href="solutions.html" class="active">Solutions</a>
+<a href="news.html">News</a>
+<a href="career.html">Career</a>
+<a href="contact.html">Contact</a>
+</div>
+</div>
+</header>
 
-                        </div>
-                        <div>
-                            <h3 class="fs-20">Contact Us</h3>
-                            +966114066666<br>
-                            sales@flowmedical.com
-                        </div>
-                    </div>
-                </div>                    
-            </div>
-        </div>
-        <div class="subfooter">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        Copyright 2026 - FLOW medical solutions
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- footer end -->
-    
-    <!-- Javascript Files
-    ================================================== -->
-    <script src="js/vendors.js"></script>
-    <script src="js/Hesham Abdelhamed.js"></script>
-    <script src="js/countdown-custom.js"></script>
-    <script src="js/custom-marquee.js"></script>
+<!-- HERO -->
+<section class="hero">
+<div>
+<h1>Solutions</h1>
+<h2>End-to-End</h2>
+
+<a href="contact.html" class="btn">Contact Us</a>
+<a href="projects.html" class="btn">Projects</a>
+</div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="section">
+<h2>Our Solutions</h2>
+
+<div class="grid">
+
+<div class="card">
+<h4>FLOW ENTERPRISE SOLUTIONS</h4>
+<p>Turnkey project delivery from concept to commissioning</p>
+</div>
+
+<div class="card">
+<h4>FLOW CARELINES</h4>
+<p>Specialized clinical department solutions (OR, Imaging, Cardiology, NICU, etc.)</p>
+</div>
+
+<div class="card">
+<h4>FLOW SERVICE+</h4>
+<p>Comprehensive asset lifecycle management and technical support</p>
+</div>
+
+<div class="card">
+<h4>FLOW DIGITAL SOLUTIONS</h4>
+<p>Advanced platforms like ATOMS CMMS & FlowMedMart</p>
+</div>
+
+<div class="card">
+<h4>FLOW PERFORMANCE EXCELLENCE</h4>
+<p>Advisory and workflow optimization for hospital efficiency</p>
+</div>
+
+<div class="card">
+<h4>MANAGED EQUIPMENT SERVICES (MES)</h4>
+<p>Innovative financial and operational models for long-term equipment management</p>
+</div>
+
+<div class="card">
+<h4>ASSESSMENT & PLANNING</h4>
+<p>Description for solution</p>
+</div>
+
+<div class="card">
+<h4>CONSTRUCTION</h4>
+<p>Description for solution</p>
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>Riyadh, Saudi Arabia</p>
+<p>+966114066666 | sales@flowmedical.com</p>
+<p>© 2026 FLOW Medical Solutions</p>
+</footer>
 
 </body>
-
 </html>
