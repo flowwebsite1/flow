@@ -551,7 +551,29 @@ header.transparent {
     font-size: 13px;
     opacity: 0.85;
 }
-  
+/* ===== UNIFIED TEAM GRID ===== */
+
+#section-speakers .team-row-nowrap {
+    display: grid !important;
+
+    /* 4 أعمدة ثابت */
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+}
+
+/* موبايل */
+@media (max-width: 991px) {
+    #section-speakers .team-row-nowrap {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    #section-speakers .team-row-nowrap {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 
 <body class="dark-scheme">
