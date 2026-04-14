@@ -652,20 +652,15 @@ Riyadh, Saudi Arabia
     </footer>
     <!-- footer end -->
     
-    <!-- Javascript Files
-    ================================================== -->
-    <script src="js/vendors.js"></script>
-    <script src="js/designesia.js"></script>
-    <script src="js/countdown-custom.js"></script>
-    <script src="js/custom-marquee.js"></script>
+  <!-- Javascript Files
+================================================== -->
+<script src="js/vendors.js"></script>
+<script src="js/designesia.js"></script>
+<script src="js/countdown-custom.js"></script>
+<script src="js/custom-marquee.js"></script>
 
+<!-- COUNT ANIMATION -->
 <script>
-/* ==================================================
-   HERO STATS COUNT-UP (runs on page load)
-   - data-count="3"
-   - data-suffix="B SAR"  => final shows like "3B SAR"
-   - data-duration="1200" (ms)
-   ================================================== */
 (function(){
   function ensureInner(el){
     var inner = el.querySelector('.stat-inner');
@@ -751,37 +746,42 @@ Riyadh, Saudi Arabia
   });
 })();
 </script>
+
+<!-- LOTTIE -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 <script>
-  document.querySelectorAll('.lottie-ico[data-lottie]').forEach(el=>{
-    lottie.loadAnimation({
-      container: el,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: el.getAttribute('data-lottie')
-    });
+document.querySelectorAll('.lottie-ico[data-lottie]').forEach(el=>{
+  lottie.loadAnimation({
+    container: el,
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: el.getAttribute('data-lottie')
   });
-  <script>
-  window.addEventListener('load', function () {
-    const loader = document.getElementById('de-loader');
-    if (!loader) return;
-    loader.classList.add('loaded');
-    setTimeout(() => { loader.style.display = 'none'; }, 650);
-  });
+});
 </script>
 
+<!-- LOADER -->
+<script>
+window.addEventListener('load', function () {
+  const loader = document.getElementById('de-loader');
+  if (!loader) return;
+  loader.classList.add('loaded');
+  setTimeout(() => { loader.style.display = 'none'; }, 650);
+});
 </script>
+
+<!-- FORM -->
 <script>
 document.querySelector("form").addEventListener("submit", function(e){
-    e.preventDefault();
-    
-    const email = document.querySelector("input[type='email']").value;
+  e.preventDefault();
+  
+  const email = document.querySelector("input[type='email']").value;
 
-    if(email){
-        alert("Thank you! You have successfully subscribed.");
-        this.reset();
-    }
+  if(email){
+    alert("Thank you! You have successfully subscribed.");
+    this.reset();
+  }
 });
 </script>
 </body>
