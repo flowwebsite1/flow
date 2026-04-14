@@ -511,6 +511,47 @@ header.transparent {
     backdrop-filter: blur(12px);
     transition: 0.3s;
 }
+  /* ===== FORCE FIX TEAM CARDS POSITION ===== */
+
+#section-speakers .hover {
+    position: relative;
+}
+
+/* أهم سطر 👇 */
+#section-speakers .hover .bg-blur {
+    position: absolute !important;
+    bottom: 20px !important;
+    top: auto !important;
+
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    width: 80% !important;
+
+    background: rgba(20, 25, 45, 0.55) !important;
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
+
+    padding: 14px 18px !important;
+}
+
+
+#section-speakers .hover .abs {
+    align-items: flex-end !important;
+    display: flex !important;
+}
+
+
+#section-speakers h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+#section-speakers span {
+    font-size: 13px;
+    opacity: 0.85;
+}
+  
 </style>
 
 <body class="dark-scheme">
