@@ -233,13 +233,10 @@
     0 0 18px rgba(var(--primary-color-rgb), 0.35);
 }
 
-/* لو عايز الايقونة على اليمين بدل الشمال */
-/* .stat-label{ flex-direction: row-reverse; } */
-/* HERO STATS PANEL: make the big box shorter (override p-40/py-4) */
 #section-hero .sm-hide.border-white-op-3.bg-blur{
-  padding: 18px 18px !important;   /* كان كبير بسبب p-40 + py-4 */
+  padding: 18px 18px !important;   
 }
-/* PILLS: more compact */
+
 .stat-pill{
   max-width: 320px;
   padding: 14px 22px;
@@ -257,7 +254,7 @@
   gap: 8px;
 }
 
-/* shrink the icon box */
+
 .stat-ico{
   width: 28px;
   height: 28px;
@@ -268,11 +265,11 @@
   height: 15px;
 }
 
-/* prevent wrapping on desktop فقط */
+
 @media (min-width: 992px){
   .stat-label span:last-child{ white-space: nowrap; }
 }
-/* حركة عامة للأيقونات داخل الـ pills */
+
 .stat-pill .stat-ico svg{
   animation: iconFloat 2.6s ease-in-out infinite;
   transform-origin: 50% 50%;
@@ -398,7 +395,56 @@
 #mainmenu > li > a.menu-item > span{
   background: #ffffff !important;
 }
+/* ===== NAVBAR CINEMATIC FIX ===== */
+header.transparent {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 20, 40, 0.85),
+        rgba(10, 20, 40, 0.2),
+        transparent
+    );
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
 
+/* menu spacing */
+#mainmenu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* active link underline */
+#mainmenu .menu-item.active {
+    border-bottom: 2px solid #3cb4e5;
+}
+/* ===== TEAM ROW FIX ===== */
+.team-row-nowrap {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 25px;
+    padding-bottom: 10px;
+}
+
+/* cards */
+.team-row-nowrap > div {
+    flex: 0 0 300px;
+}
+
+/* scrollbar style */
+.team-row-nowrap::-webkit-scrollbar {
+    height: 6px;
+}
+.team-row-nowrap::-webkit-scrollbar-thumb {
+    background: #3cb4e5;
+    border-radius: 10px;
+}
 </style>
 
 <body class="dark-scheme">
