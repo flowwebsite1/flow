@@ -445,6 +445,72 @@ header.transparent {
     background: #3cb4e5;
     border-radius: 10px;
 }
+  /* ===== NAVBAR CLEAN FIX ===== */
+
+/* شيل أي span underline */
+#mainmenu li a span {
+    display: none !important;
+}
+
+/* شيل أي pseudo elements غريبة */
+#mainmenu li a::before,
+#mainmenu li a::after {
+    display: none !important;
+}
+
+/* نعمل underline واحد بس */
+#mainmenu .menu-item {
+    position: relative;
+    padding-bottom: 6px;
+}
+
+#mainmenu .menu-item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #3cb4e5;
+    transition: 0.3s ease;
+}
+
+#mainmenu .menu-item:hover::after,
+#mainmenu .menu-item.active::after {
+    width: 100%;
+}
+  /* ===== REMOVE DOT FROM PROJECTS ===== */
+#mainmenu li.has-sub > a {
+    background: none !important;
+}
+
+#mainmenu li.has-sub > a i,
+#mainmenu li.has-sub > a::before {
+    display: none !important;
+}
+  /* ===== FIX TEAM TEXT ===== */
+#section-speakers .bg-blur {
+    background: rgba(15, 20, 40, 0.45) !important;
+    backdrop-filter: blur(10px);
+    padding: 12px 18px !important;
+    border-radius: 12px;
+    width: 75%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* hover */
+#section-speakers .hover:hover .bg-blur {
+    background: rgba(15, 20, 40, 0.7);
+}
+  header.transparent {
+    background: rgba(10, 15, 35, 0.75);
+    backdrop-filter: blur(12px);
+    transition: 0.3s;
+}
 </style>
 
 <body class="dark-scheme">
