@@ -447,18 +447,18 @@ header.transparent {
 }
   /* ===== NAVBAR CLEAN FIX ===== */
 
-/* شيل أي span underline */
+
 #mainmenu li a span {
     display: none !important;
 }
 
-/* شيل أي pseudo elements غريبة */
+
 #mainmenu li a::before,
 #mainmenu li a::after {
     display: none !important;
 }
 
-/* نعمل underline واحد بس */
+
 #mainmenu .menu-item {
     position: relative;
     padding-bottom: 6px;
@@ -517,7 +517,7 @@ header.transparent {
     position: relative;
 }
 
-/* أهم سطر 👇 */
+
 #section-speakers .hover .bg-blur {
     position: absolute !important;
     bottom: 20px !important;
@@ -556,13 +556,13 @@ header.transparent {
 #section-speakers .team-row-nowrap {
     display: grid !important;
 
-    /* 4 أعمدة ثابت */
+   
     grid-template-columns: repeat(4, 1fr);
 
     gap: 30px;
 }
 
-/* موبايل */
+
 @media (max-width: 991px) {
     #section-speakers .team-row-nowrap {
         grid-template-columns: repeat(2, 1fr);
@@ -585,7 +585,7 @@ header.transparent {
     padding-bottom: 20px;
 }
 
-/* Scroll ناعم */
+
 #section-speakers .team-row-nowrap::-webkit-scrollbar {
     height: 6px;
 }
@@ -594,9 +594,9 @@ header.transparent {
     border-radius: 10px;
 }
 
-/* الكارت */
+
 #section-speakers .hover {
-    flex: 0 0 260px; /* حجم ثابت */
+    flex: 0 0 260px; 
     border-radius: 16px;
     overflow: hidden;
     background: #111;
@@ -839,8 +839,7 @@ header.transparent {
         </div>
     </div>
 
-    <!-- Keep countdown element available for existing scripts (hidden via CSS) -->
-    <div id="defaultCountdown" class="pt-2"></div>
+     <div id="defaultCountdown" class="pt-2"></div>
 </div>
         </section>
 
