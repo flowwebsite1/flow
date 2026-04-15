@@ -11,250 +11,301 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/vendors.css">
-<link rel="stylesheet" href="css/swiper.css">
-<link rel="stylesheet" href="css/style.css">
-
 <style>
 
-/* ===== GLOBAL ===== */
-body {
-    background:#050a1f;
+/* ===== RESET ===== */
+body{
+    margin:0;
+    font-family:Montserrat, sans-serif;
+    background:#070f2c;
+    color:#fff;
 }
 
-/* ===== HERO VIDEO ===== */
-#section-hero video{
-    filter: brightness(.5) contrast(1.2);
+/* ===== NAV ===== */
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:999;
+    background:linear-gradient(to right,#1d75bc,#3cb4e5);
 }
 
-/* ===== HERO TEXT ===== */
-.hero-title {
-    text-shadow: 0 0 25px rgba(60,180,229,.4);
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
 }
 
-/* ===== SOLUTIONS CARDS ===== */
-.solution-card{
-    background: rgba(20,30,60,.5);
-    border-radius:16px;
-    padding:35px;
+.nav img{height:40px;}
+
+.menu{
+    display:flex;
+    gap:30px;
+}
+
+.menu a{
+    color:#fff;
+    text-decoration:none;
+    position:relative;
+}
+
+.menu a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:#00c6ff;
+    transition:.3s;
+}
+
+.menu a:hover::after,
+.menu a.active::after{
+    width:100%;
+}
+
+/* ===== HERO ===== */
+.hero{
+    height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.hero video{
+    position:absolute;
+    width:100%;
     height:100%;
-    transition:.4s;
-    backdrop-filter: blur(12px);
+    object-fit:cover;
+    filter:brightness(.4) contrast(1.2);
+}
+
+/* overlay cinematic */
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(to bottom,rgba(0,0,0,.4),#070f2c);
+}
+
+/* hero content */
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    font-size:70px;
+    margin:0;
+    text-shadow:0 0 30px rgba(60,180,229,.6);
+}
+
+.hero h2{
+    font-size:36px;
+    color:#3cb4e5;
+    margin-top:10px;
+}
+
+.btn{
+    display:inline-block;
+    margin:10px;
+    padding:12px 25px;
+    border:1px solid #3cb4e5;
+    border-radius:6px;
+    text-decoration:none;
+    color:#fff;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#3cb4e5;
+}
+
+/* ===== SECTION ===== */
+.section{
+    padding:100px 40px;
+    text-align:center;
+}
+
+.section h2{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.section p{
+    color:#aaa;
+}
+
+/* ===== GRID ===== */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+    margin-top:50px;
+}
+
+/* ===== CARD ===== */
+.card{
+    background:rgba(20,30,60,.5);
+    padding:40px;
+    border-radius:14px;
+    backdrop-filter:blur(12px);
     border:1px solid rgba(255,255,255,.05);
+    transition:.4s;
     position:relative;
     overflow:hidden;
 }
 
-.solution-card::before{
+/* glow effect */
+.card::before{
     content:"";
     position:absolute;
     inset:0;
-    background: radial-gradient(circle at top,
-        rgba(60,180,229,.25),
-        transparent 60%);
+    background:radial-gradient(circle at top,
+    rgba(60,180,229,.3),
+    transparent 60%);
     opacity:0;
     transition:.4s;
 }
 
-.solution-card:hover{
-    transform:translateY(-10px) scale(1.02);
-    box-shadow:0 20px 60px rgba(0,0,0,.6);
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 50px rgba(0,0,0,.6);
 }
 
-.solution-card:hover::before{
+.card:hover::before{
     opacity:1;
 }
 
-.solution-card i{
-    font-size:36px;
-    color:#3cb4e5;
-    margin-bottom:15px;
-}
-
-/* ===== LIGHT SWEEP ===== */
-.solution-card::after{
+/* light sweep */
+.card::after{
     content:"";
     position:absolute;
     top:0;
     left:-100%;
     width:60%;
     height:100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.15),
-        transparent
-    );
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.2),transparent);
 }
 
-.solution-card:hover::after{
-    animation:sweep 1s ease;
+.card:hover::after{
+    animation:sweep 1s;
 }
 
 @keyframes sweep{
-    0%{left:-100%;}
-    100%{left:120%;}
+    to{left:120%;}
 }
 
-/* ===== SECTION TITLE ===== */
-.section-title{
+.card i{
+    font-size:35px;
+    color:#3cb4e5;
+}
+
+.card h4{
+    margin:15px 0;
+}
+
+/* ===== FOOTER ===== */
+footer{
     text-align:center;
-    margin-bottom:60px;
-}
-
-.section-title h2{
-    font-size:48px;
-    text-shadow:0 0 20px rgba(60,180,229,.3);
-}
-
-/* ===== NAV FIX ===== */
-#mainmenu li a span{
-    display:none !important;
-}
-
-/* ===== REMOVE DOT PROJECTS ===== */
-#mainmenu li.has-sub > a::before{
-    display:none !important;
-}
-
-/* ===== SMOOTH SCROLL EFFECT ===== */
-html{
-    scroll-behavior:smooth;
+    padding:40px;
+    background:#050b25;
+    color:#aaa;
 }
 
 </style>
-
 </head>
 
-<body class="dark-scheme">
+<body>
 
-<div id="wrapper">
+<!-- NAV -->
+<header>
+<div class="nav">
 
-<!-- ===== HEADER ===== -->
-<header class="transparent">
-<div class="container">
-<div class="row">
-<div class="col-md-12">
-<div class="de-flex">
-
-<div class="de-flex-col">
-<div id="logo">
-<a href="index.html">
 <img src="images/logo.webp">
-</a>
-</div>
+
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="index.html#section-about">About</a>
+<a href="projects.html">Projects</a>
+<a href="solutions.html" class="active">Solutions</a>
+<a href="news.html">News</a>
+<a href="career.html">Career</a>
+<a href="contact.html">Contact</a>
 </div>
 
-<div class="de-flex-col header-col-mid">
-<ul id="mainmenu">
-<li><a class="menu-item" href="index.html">Home</a></li>
-<li><a class="menu-item" href="index.html#section-about">About</a></li>
-<li><a class="menu-item" href="projects.html">Projects</a></li>
-<li><a class="menu-item active" href="solutions.html">Solutions</a></li>
-<li><a class="menu-item" href="news.html">News</a></li>
-<li><a class="menu-item" href="career.html">Career</a></li>
-<li><a class="menu-item" href="contact.html">Contact</a></li>
-</ul>
-</div>
-
-<div class="de-flex-col">
-<a class="btn-main fx-slide" href="contact.html"><span>Contact</span></a>
-</div>
-
-</div>
-</div>
-</div>
 </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<section id="section-hero" class="jarallax text-light" data-video-src="mp4:video/videosolutions.mp4">
+<!-- HERO -->
+<section class="hero">
 
-<div class="sw-overlay op-8"></div>
+<video autoplay muted loop>
+<source src="video/videosolutions.mp4" type="video/mp4">
+</video>
 
-<div class="abs abs-centered z-2 w-80 text-center">
+<div class="hero-content">
 
-<div class="subtitle">FLOW Solutions</div>
+<h1>Solutions</h1>
+<h2>End-to-End Healthcare</h2>
 
-<h1 class="hero-title fs-120">Solutions</h1>
-<h2 class="hero-title fs-60">End-to-End Healthcare</h2>
-
-<div class="spacer-single"></div>
-
-<a class="btn-main mx-2" href="#section-solutions">Explore</a>
-<a class="btn-main btn-line mx-2" href="contact.html">Contact</a>
+<a href="#solutions" class="btn">Explore</a>
+<a href="contact.html" class="btn">Contact</a>
 
 </div>
 
 </section>
 
-<!-- ===== SOLUTIONS ===== -->
-<section id="section-solutions" class="section-dark text-light">
+<!-- SOLUTIONS -->
+<section id="solutions" class="section">
 
-<div class="container">
-
-<div class="section-title">
-<div class="subtitle">What we deliver</div>
 <h2>Our Solutions</h2>
 <p>Integrated healthcare transformation services</p>
-</div>
 
-<div class="row g-4">
+<div class="grid">
 
-<div class="col-lg-3 col-md-6">
-<div class="solution-card text-center">
+<div class="card">
 <i class="fa-solid fa-diagram-project"></i>
 <h4>Enterprise Solutions</h4>
 <p>Turnkey delivery from concept to commissioning</p>
 </div>
-</div>
 
-<div class="col-lg-3 col-md-6">
-<div class="solution-card text-center">
+<div class="card">
 <i class="fa-solid fa-hospital"></i>
 <h4>CareLines</h4>
 <p>Specialized clinical department solutions</p>
 </div>
-</div>
 
-<div class="col-lg-3 col-md-6">
-<div class="solution-card text-center">
+<div class="card">
 <i class="fa-solid fa-shield-halved"></i>
 <h4>Service+</h4>
 <p>Lifecycle management & support</p>
 </div>
-</div>
 
-<div class="col-lg-3 col-md-6">
-<div class="solution-card text-center">
+<div class="card">
 <i class="fa-solid fa-cubes"></i>
 <h4>Digital Solutions</h4>
 <p>ATOMS CMMS & FlowMedMart platforms</p>
-</div>
-</div>
-
 </div>
 
 </div>
 
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="text-light section-dark">
-<div class="container text-center">
+<!-- FOOTER -->
+<footer>
 
 <p>Riyadh, Saudi Arabia</p>
 <p>+966114066666 | sales@flowmedical.com</p>
 <p>© 2026 FLOW Medical Solutions</p>
 
-</div>
 </footer>
-
-</div>
-
-<script src="js/vendors.js"></script>
-<script src="js/designesia.js"></script>
 
 </body>
 </html>
