@@ -223,7 +223,68 @@ footer{
     background:#02061a;
     color:#aaa;
 }
+/* FIX CARDS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 60px;
+}
 
+.card {
+    padding: 35px 25px;
+    border-radius: 14px;
+    background: rgba(20,30,60,0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+    transition: 0.4s;
+}
+
+/* شيل الشكل الغلط */
+.card::before,
+.card::after {
+    display: none !important;
+}
+
+/* hover clean */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* icon */
+.card i {
+    font-size: 28px;
+    margin-bottom: 12px;
+    color: #3cb4e5;
+}
+    /* CENTER NAV */
+.nav {
+    justify-content: center;
+    position: relative;
+}
+
+.menu {
+    margin: auto;
+}
+
+/* اللوجو شمال */
+.nav img {
+    position: absolute;
+    left: 40px;
+}
+
+/* زر contact يمين */
+.nav .btn {
+    position: absolute;
+    right: 40px;
+}
+    /* REMOVE NAV BACKGROUND */
+header {
+    background: transparent !important;
+    backdrop-filter: blur(10px);
+}
 </style>
 </head>
 
