@@ -293,11 +293,9 @@ html, body {
 
 /* توزيع الصفحة */
 #wrapper {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
-
 /* الهيرو */
 .hero {
     height: 55vh;
@@ -348,6 +346,29 @@ footer {
 
 .card:hover {
     box-shadow: 0 20px 40px rgba(0,0,0,.6);
+}
+    /* FIX: prevent hero from covering whole page */
+#section-hero {
+  height: 70vh !important;
+  min-height: 500px;
+  position: relative;
+  z-index: 1;
+}
+
+/* FIX: make sure next sections appear above */
+section {
+  position: relative;
+  z-index: 2;
+}
+
+/* FIX: overlay not blocking content */
+.sw-overlay {
+  pointer-events: none;
+}
+
+/* FIX: remove any full screen blocking */
+body, html {
+  overflow-x: hidden;
 }
 </style>
 </head>
