@@ -18,7 +18,6 @@ body{
     font-family:Montserrat, sans-serif;
     background:#050a1f;
     color:#fff;
-    overflow-x:hidden;
 }
 
 /* ===== NAV ===== */
@@ -27,14 +26,20 @@ header{
     width:100%;
     top:0;
     z-index:999;
-    backdrop-filter:blur(12px);
-    background:rgba(0,0,0,.3);
+    backdrop-filter:blur(10px);
+    background:transparent;
 }
 
 .nav{
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     padding:15px 40px;
+    position:relative;
+}
+
+.nav img{
+    position:absolute;
+    left:40px;
 }
 
 .menu{
@@ -66,7 +71,7 @@ header{
 
 /* ===== HERO ===== */
 .hero{
-    height:100vh;
+    height:60vh;
     position:relative;
     display:flex;
     align-items:center;
@@ -75,7 +80,6 @@ header{
     overflow:hidden;
 }
 
-/* VIDEO */
 .hero video{
     position:absolute;
     width:100%;
@@ -84,23 +88,6 @@ header{
     filter:brightness(.4);
 }
 
-/* PARALLAX LIGHT */
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:radial-gradient(circle at 50% 20%,
-    rgba(60,180,229,.3),
-    transparent 60%);
-    animation:float 8s infinite alternate;
-}
-
-@keyframes float{
-    0%{transform:translateY(-20px);}
-    100%{transform:translateY(40px);}
-}
-
-/* OVERLAY */
 .hero::after{
     content:"";
     position:absolute;
@@ -108,268 +95,75 @@ header{
     background:linear-gradient(to bottom,transparent,#050a1f);
 }
 
-/* HERO CONTENT */
 .hero-content{
     position:relative;
     z-index:2;
 }
 
 .hero h1{
-    font-size:80px;
+    font-size:70px;
     margin:0;
-    text-shadow:0 0 40px rgba(60,180,229,.7);
 }
 
 .hero h2{
-    font-size:38px;
     color:#3cb4e5;
-}
-
-/* BUTTON */
-.btn{
-    margin:10px;
-    padding:12px 30px;
-    border:1px solid #3cb4e5;
-    border-radius:6px;
-    text-decoration:none;
-    color:#fff;
-    transition:.3s;
-}
-
-.btn:hover{
-    background:#3cb4e5;
 }
 
 /* ===== SECTION ===== */
 .section{
-    padding:120px 40px;
+    padding:80px 20px;
     text-align:center;
-}
-
-/* TITLE ANIMATION */
-.fade-up{
-    opacity:0;
-    transform:translateY(40px);
-    transition:1s;
-}
-
-.fade-up.active{
-    opacity:1;
-    transform:translateY(0);
 }
 
 /* ===== GRID ===== */
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:30px;
-    margin-top:60px;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    max-width:1100px;
+    margin:auto;
 }
 
 /* ===== CARD ===== */
 .card{
-    background:rgba(20,30,60,.5);
-    padding:40px;
-    border-radius:16px;
+    background:rgba(255,255,255,0.05);
     backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,.05);
-    position:relative;
-    transition:.4s;
+    border-radius:14px;
+    padding:30px;
+    transition:.2s;
+    transform-style:preserve-3d;
 }
 
-/* glow */
+.card:hover{
+    box-shadow:0 20px 40px rgba(0,0,0,.6);
+}
+
+.card i{
+    font-size:28px;
+    color:#3cb4e5;
+    margin-bottom:10px;
+}
+
+/* LIGHT EFFECT */
 .card::before{
     content:"";
     position:absolute;
     inset:0;
-    background:radial-gradient(circle at top,
-    rgba(60,180,229,.3),
-    transparent 70%);
-    opacity:0;
-    transition:.4s;
-}
-
-.card:hover{
-    transform:translateY(-12px) scale(1.03);
-}
-
-.card:hover::before{
-    opacity:1;
-}
-
-/* LIGHT SWEEP */
-.card::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-100%;
-    width:60%;
-    height:100%;
-    background:linear-gradient(120deg,transparent,rgba(255,255,255,.2),transparent);
-}
-
-.card:hover::after{
-    animation:sweep 1s;
-}
-
-@keyframes sweep{
-    to{left:120%;}
+    border-radius:14px;
+    background:radial-gradient(circle at var(--x,50%) var(--y,50%),
+    rgba(255,255,255,.25),
+    transparent 40%);
+    opacity:.3;
 }
 
 /* ===== FOOTER ===== */
 footer{
     text-align:center;
-    padding:50px;
+    padding:40px;
     background:#02061a;
     color:#aaa;
 }
-/* FIX CARDS */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-    margin-top: 60px;
-}
 
-.card {
-    padding: 35px 25px;
-    border-radius: 14px;
-    background: rgba(20,30,60,0.4);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.06);
-    text-align: center;
-    transition: 0.4s;
-}
-
-/* شيل الشكل الغلط */
-.card::before,
-.card::after {
-    display: none !important;
-}
-
-/* hover clean */
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-}
-
-/* icon */
-.card i {
-    font-size: 28px;
-    margin-bottom: 12px;
-    color: #3cb4e5;
-}
-    /* CENTER NAV */
-.nav {
-    justify-content: center;
-    position: relative;
-}
-
-.menu {
-    margin: auto;
-}
-
-/* اللوجو شمال */
-.nav img {
-    position: absolute;
-    left: 40px;
-}
-
-/* زر contact يمين */
-.nav .btn {
-    position: absolute;
-    right: 40px;
-}
-    /* REMOVE NAV BACKGROUND */
-header {
-    background: transparent !important;
-    backdrop-filter: blur(10px);
-}
-    /* NO SCROLL PAGE */
-html, body {
-    height: 100%;
-    overflow: hidden;
-}
-
-/* توزيع الصفحة */
-#wrapper {
-  position: relative;
-  z-index: 1;
-}
-/* الهيرو */
-.hero {
-    height: 55vh;
-}
-
-/* سكشن الكروت */
-.section {
-    flex: 1;
-    padding: 40px 20px;
-}
-
-/* الفوتر */
-footer {
-    padding: 15px;
-    font-size: 14px;
-}
-    .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    max-width: 1100px;
-    margin: auto;
-}
-    .card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(15px);
-    border-radius: 14px;
-    padding: 30px;
-    text-align: center;
-    transition: transform .2s ease, box-shadow .2s ease;
-    transform-style: preserve-3d;
-    perspective: 1000px;
-    position: relative;
-}
-
-/* light reflection */
-.card::before {
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:14px;
-    background: radial-gradient(circle at var(--x,50%) var(--y,50%),
-        rgba(255,255,255,.25),
-        transparent 40%);
-    opacity:.3;
-    transition:.2s;
-}
-
-.card:hover {
-    box-shadow: 0 20px 40px rgba(0,0,0,.6);
-}
-    /* FIX: prevent hero from covering whole page */
-#section-hero {
-  height: 70vh !important;
-  min-height: 500px;
-  position: relative;
-  z-index: 1;
-}
-
-/* FIX: make sure next sections appear above */
-section {
-  position: relative;
-  z-index: 2;
-}
-
-/* FIX: overlay not blocking content */
-.sw-overlay {
-  pointer-events: none;
-}
-
-/* FIX: remove any full screen blocking */
-body, html {
-  overflow-x: hidden;
-}
 </style>
 </head>
 
@@ -400,47 +194,40 @@ body, html {
 <source src="video/videosolutions.mp4">
 </video>
 
-<div class="hero-content fade-up">
-
+<div class="hero-content">
 <h1>Solutions</h1>
 <h2>End-to-End Healthcare</h2>
-
-<a href="#solutions" class="btn">Explore</a>
-<a href="contact.html" class="btn">Contact</a>
-
 </div>
 
 </section>
 
 <!-- SOLUTIONS -->
-<section id="solutions" class="section">
+<section class="section">
 
-<div class="fade-up">
 <h2>Our Solutions</h2>
 <p>Integrated healthcare transformation services</p>
-</div>
 
 <div class="grid">
 
-<div class="card fade-up">
+<div class="card">
 <i class="fa-solid fa-diagram-project"></i>
 <h4>Enterprise Solutions</h4>
 <p>Turnkey delivery from concept to commissioning</p>
 </div>
 
-<div class="card fade-up">
+<div class="card">
 <i class="fa-solid fa-hospital"></i>
 <h4>CareLines</h4>
 <p>Specialized clinical departments</p>
 </div>
 
-<div class="card fade-up">
+<div class="card">
 <i class="fa-solid fa-shield-halved"></i>
 <h4>Service+</h4>
 <p>Lifecycle management</p>
 </div>
 
-<div class="card fade-up">
+<div class="card">
 <i class="fa-solid fa-cubes"></i>
 <h4>Digital Solutions</h4>
 <p>ATOMS CMMS & FlowMedMart</p>
@@ -451,48 +238,32 @@ body, html {
 </section>
 
 <footer>
-
 <p>Riyadh, Saudi Arabia</p>
 <p>+966114066666 | sales@flowmedical.com</p>
 <p>© 2026 FLOW Medical Solutions</p>
-
 </footer>
 
-<!-- SCROLL ANIMATION -->
 <script>
-const elements = document.querySelectorAll(".fade-up");
+document.querySelectorAll(".card").forEach(card=>{
+card.addEventListener("mousemove",(e)=>{
+const rect=card.getBoundingClientRect();
+const x=e.clientX-rect.left;
+const y=e.clientY-rect.top;
 
-window.addEventListener("scroll", ()=>{
-    elements.forEach(el=>{
-        const top = el.getBoundingClientRect().top;
-        if(top < window.innerHeight - 50){
-            el.classList.add("active");
-        }
-    });
+card.style.setProperty('--x',x+'px');
+card.style.setProperty('--y',y+'px');
+
+const rotateX=(y-rect.height/2)/10;
+const rotateY=(rect.width/2-x)/10;
+
+card.style.transform=`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+});
+
+card.addEventListener("mouseleave",()=>{
+card.style.transform="rotateX(0) rotateY(0)";
+});
 });
 </script>
-<script>
-document.querySelectorAll(".card").forEach(card => {
 
-    card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        card.style.setProperty('--x', x + 'px');
-        card.style.setProperty('--y', y + 'px');
-
-        const rotateX = (y - rect.height/2) / 10;
-        const rotateY = (rect.width/2 - x) / 10;
-
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-        card.style.transform = "rotateX(0) rotateY(0)";
-    });
-
-});
-</script>
 </body>
 </html>
