@@ -285,6 +285,70 @@ header {
     background: transparent !important;
     backdrop-filter: blur(10px);
 }
+    /* NO SCROLL PAGE */
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* توزيع الصفحة */
+#wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* الهيرو */
+.hero {
+    height: 55vh;
+}
+
+/* سكشن الكروت */
+.section {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+/* الفوتر */
+footer {
+    padding: 15px;
+    font-size: 14px;
+}
+    .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+    .card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 14px;
+    padding: 30px;
+    text-align: center;
+    transition: transform .2s ease, box-shadow .2s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    position: relative;
+}
+
+/* light reflection */
+.card::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:14px;
+    background: radial-gradient(circle at var(--x,50%) var(--y,50%),
+        rgba(255,255,255,.25),
+        transparent 40%);
+    opacity:.3;
+    transition:.2s;
+}
+
+.card:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,.6);
+}
 </style>
 </head>
 
@@ -386,6 +450,28 @@ window.addEventListener("scroll", ()=>{
     });
 });
 </script>
+<script>
+document.querySelectorAll(".card").forEach(card => {
 
+    card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty('--x', x + 'px');
+        card.style.setProperty('--y', y + 'px');
+
+        const rotateX = (y - rect.height/2) / 10;
+        const rotateY = (rect.width/2 - x) / 10;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "rotateX(0) rotateY(0)";
+    });
+
+});
+</script>
 </body>
 </html>
