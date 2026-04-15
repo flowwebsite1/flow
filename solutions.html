@@ -8,17 +8,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="icon" href="images/icon.webp">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
-/* ===== RESET ===== */
+/* ===== GLOBAL ===== */
 body{
     margin:0;
     font-family:Montserrat, sans-serif;
-    background:#070f2c;
+    background:#050a1f;
     color:#fff;
+    overflow-x:hidden;
 }
 
 /* ===== NAV ===== */
@@ -27,17 +27,15 @@ header{
     width:100%;
     top:0;
     z-index:999;
-    background:linear-gradient(to right,#1d75bc,#3cb4e5);
+    backdrop-filter:blur(12px);
+    background:rgba(0,0,0,.3);
 }
 
 .nav{
     display:flex;
     justify-content:space-between;
-    align-items:center;
     padding:15px 40px;
 }
-
-.nav img{height:40px;}
 
 .menu{
     display:flex;
@@ -53,11 +51,11 @@ header{
 .menu a::after{
     content:"";
     position:absolute;
-    left:0;
     bottom:-5px;
+    left:0;
     width:0;
     height:2px;
-    background:#00c6ff;
+    background:#3cb4e5;
     transition:.3s;
 }
 
@@ -77,45 +75,60 @@ header{
     overflow:hidden;
 }
 
+/* VIDEO */
 .hero video{
     position:absolute;
     width:100%;
     height:100%;
     object-fit:cover;
-    filter:brightness(.4) contrast(1.2);
+    filter:brightness(.4);
 }
 
-/* overlay cinematic */
+/* PARALLAX LIGHT */
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 50% 20%,
+    rgba(60,180,229,.3),
+    transparent 60%);
+    animation:float 8s infinite alternate;
+}
+
+@keyframes float{
+    0%{transform:translateY(-20px);}
+    100%{transform:translateY(40px);}
+}
+
+/* OVERLAY */
 .hero::after{
     content:"";
     position:absolute;
     inset:0;
-    background:
-    linear-gradient(to bottom,rgba(0,0,0,.4),#070f2c);
+    background:linear-gradient(to bottom,transparent,#050a1f);
 }
 
-/* hero content */
+/* HERO CONTENT */
 .hero-content{
     position:relative;
     z-index:2;
 }
 
 .hero h1{
-    font-size:70px;
+    font-size:80px;
     margin:0;
-    text-shadow:0 0 30px rgba(60,180,229,.6);
+    text-shadow:0 0 40px rgba(60,180,229,.7);
 }
 
 .hero h2{
-    font-size:36px;
+    font-size:38px;
     color:#3cb4e5;
-    margin-top:10px;
 }
 
+/* BUTTON */
 .btn{
-    display:inline-block;
     margin:10px;
-    padding:12px 25px;
+    padding:12px 30px;
     border:1px solid #3cb4e5;
     border-radius:6px;
     text-decoration:none;
@@ -129,17 +142,20 @@ header{
 
 /* ===== SECTION ===== */
 .section{
-    padding:100px 40px;
+    padding:120px 40px;
     text-align:center;
 }
 
-.section h2{
-    font-size:42px;
-    margin-bottom:10px;
+/* TITLE ANIMATION */
+.fade-up{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s;
 }
 
-.section p{
-    color:#aaa;
+.fade-up.active{
+    opacity:1;
+    transform:translateY(0);
 }
 
 /* ===== GRID ===== */
@@ -147,43 +163,41 @@ header{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:30px;
-    margin-top:50px;
+    margin-top:60px;
 }
 
 /* ===== CARD ===== */
 .card{
     background:rgba(20,30,60,.5);
     padding:40px;
-    border-radius:14px;
-    backdrop-filter:blur(12px);
+    border-radius:16px;
+    backdrop-filter:blur(15px);
     border:1px solid rgba(255,255,255,.05);
-    transition:.4s;
     position:relative;
-    overflow:hidden;
+    transition:.4s;
 }
 
-/* glow effect */
+/* glow */
 .card::before{
     content:"";
     position:absolute;
     inset:0;
     background:radial-gradient(circle at top,
     rgba(60,180,229,.3),
-    transparent 60%);
+    transparent 70%);
     opacity:0;
     transition:.4s;
 }
 
 .card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 20px 50px rgba(0,0,0,.6);
+    transform:translateY(-12px) scale(1.03);
 }
 
 .card:hover::before{
     opacity:1;
 }
 
-/* light sweep */
+/* LIGHT SWEEP */
 .card::after{
     content:"";
     position:absolute;
@@ -202,20 +216,11 @@ header{
     to{left:120%;}
 }
 
-.card i{
-    font-size:35px;
-    color:#3cb4e5;
-}
-
-.card h4{
-    margin:15px 0;
-}
-
 /* ===== FOOTER ===== */
 footer{
     text-align:center;
-    padding:40px;
-    background:#050b25;
+    padding:50px;
+    background:#02061a;
     color:#aaa;
 }
 
@@ -224,11 +229,10 @@ footer{
 
 <body>
 
-<!-- NAV -->
 <header>
 <div class="nav">
 
-<img src="images/logo.webp">
+<img src="images/logo.webp" height="40">
 
 <div class="menu">
 <a href="index.html">Home</a>
@@ -247,10 +251,10 @@ footer{
 <section class="hero">
 
 <video autoplay muted loop>
-<source src="video/videosolutions.mp4" type="video/mp4">
+<source src="video/videosolutions.mp4">
 </video>
 
-<div class="hero-content">
+<div class="hero-content fade-up">
 
 <h1>Solutions</h1>
 <h2>End-to-End Healthcare</h2>
@@ -265,40 +269,41 @@ footer{
 <!-- SOLUTIONS -->
 <section id="solutions" class="section">
 
+<div class="fade-up">
 <h2>Our Solutions</h2>
 <p>Integrated healthcare transformation services</p>
+</div>
 
 <div class="grid">
 
-<div class="card">
+<div class="card fade-up">
 <i class="fa-solid fa-diagram-project"></i>
 <h4>Enterprise Solutions</h4>
 <p>Turnkey delivery from concept to commissioning</p>
 </div>
 
-<div class="card">
+<div class="card fade-up">
 <i class="fa-solid fa-hospital"></i>
 <h4>CareLines</h4>
-<p>Specialized clinical department solutions</p>
+<p>Specialized clinical departments</p>
 </div>
 
-<div class="card">
+<div class="card fade-up">
 <i class="fa-solid fa-shield-halved"></i>
 <h4>Service+</h4>
-<p>Lifecycle management & support</p>
+<p>Lifecycle management</p>
 </div>
 
-<div class="card">
+<div class="card fade-up">
 <i class="fa-solid fa-cubes"></i>
 <h4>Digital Solutions</h4>
-<p>ATOMS CMMS & FlowMedMart platforms</p>
+<p>ATOMS CMMS & FlowMedMart</p>
 </div>
 
 </div>
 
 </section>
 
-<!-- FOOTER -->
 <footer>
 
 <p>Riyadh, Saudi Arabia</p>
@@ -306,6 +311,20 @@ footer{
 <p>© 2026 FLOW Medical Solutions</p>
 
 </footer>
+
+<!-- SCROLL ANIMATION -->
+<script>
+const elements = document.querySelectorAll(".fade-up");
+
+window.addEventListener("scroll", ()=>{
+    elements.forEach(el=>{
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 50){
+            el.classList.add("active");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
